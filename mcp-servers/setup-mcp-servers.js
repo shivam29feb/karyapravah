@@ -1,6 +1,6 @@
 /**
  * MCP Server Setup Script
- * 
+ *
  * This script helps set up and configure MCP servers for Augment.
  */
 
@@ -24,7 +24,7 @@ const mcpServers = [
       MYSQL_PORT: '3306',
       MYSQL_USER: 'root',
       MYSQL_PASS: 'ujkxco2920@',
-      MYSQL_DB: 'sarasvishva'
+      MYSQL_DB: 'karyapravah'
     }
   }
 ];
@@ -57,7 +57,7 @@ function createAugmentDirectory() {
 function updateVscodeSettings() {
   const settingsPath = path.join(process.cwd(), '.vscode', 'settings.json');
   let settings = {};
-  
+
   // Read existing settings if the file exists
   if (fs.existsSync(settingsPath)) {
     try {
@@ -67,11 +67,11 @@ function updateVscodeSettings() {
       console.error('Error reading .vscode/settings.json:', error);
     }
   }
-  
+
   // Update the settings with the MCP server configuration
   settings['augment.advanced'] = settings['augment.advanced'] || {};
   settings['augment.advanced']['mcpServers'] = mcpServers;
-  
+
   // Write the updated settings back to the file
   try {
     fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2));
@@ -87,7 +87,7 @@ function updateVscodeSettings() {
 function updateAugmentConfig() {
   const configPath = path.join(process.cwd(), '.augment', 'config.json');
   let config = {};
-  
+
   // Read existing config if the file exists
   if (fs.existsSync(configPath)) {
     try {
@@ -97,11 +97,11 @@ function updateAugmentConfig() {
       console.error('Error reading .augment/config.json:', error);
     }
   }
-  
+
   // Update the config with the MCP server configuration
   config['augment.advanced'] = config['augment.advanced'] || {};
   config['augment.advanced']['mcpServers'] = mcpServers;
-  
+
   // Write the updated config back to the file
   try {
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
@@ -123,13 +123,13 @@ set MYSQL_HOST=localhost
 set MYSQL_PORT=3306
 set MYSQL_USER=root
 set MYSQL_PASS=ujkxco2920@
-set MYSQL_DB=sarasvishva
+set MYSQL_DB=karyapravah
 
 echo Environment variables set. >> ${path.join(process.cwd(), '.augment', 'mysql-mcp.log')}
 echo Running MySQL MCP Server... >> ${path.join(process.cwd(), '.augment', 'mysql-mcp.log')}
 
 "${process.env.PROGRAMFILES}\\nodejs\\node.exe" "%APPDATA%\\npm\\node_modules\\@benborla29\\mcp-server-mysql\\dist\\index.js" >> ${path.join(process.cwd(), '.augment', 'mysql-mcp.log')} 2>&1`;
-  
+
   try {
     fs.writeFileSync(batchPath, batchContent);
     console.log('Created .augment/run-mysql-mcp.bat');
@@ -143,16 +143,16 @@ echo Running MySQL MCP Server... >> ${path.join(process.cwd(), '.augment', 'mysq
  */
 function installPackages() {
   console.log('Installing required npm packages...');
-  
+
   try {
     // Install the MySQL MCP server
     execSync('npm install -g @benborla29/mcp-server-mysql', { stdio: 'inherit' });
     console.log('Installed @benborla29/mcp-server-mysql globally');
-    
+
     // Install the Smithery CLI
     execSync('npm install -g @smithery/cli', { stdio: 'inherit' });
     console.log('Installed @smithery/cli globally');
-    
+
     // Install mysql2 for the database connector
     execSync('npm install mysql2', { stdio: 'inherit' });
     console.log('Installed mysql2 locally');
@@ -166,7 +166,7 @@ function installPackages() {
  */
 function setEnvironmentVariables() {
   console.log('Setting environment variables...');
-  
+
   try {
     // Set environment variables for the current process
     process.env.MYSQL_HOST = 'localhost';
@@ -174,16 +174,16 @@ function setEnvironmentVariables() {
     process.env.MYSQL_USER = 'root';
     process.env.MYSQL_PASS = 'ujkxco2920@';
     process.env.MYSQL_DB = 'sarasvishva';
-    
+
     // Set environment variables for the user (Windows only)
     if (process.platform === 'win32') {
       execSync('setx MYSQL_HOST localhost', { stdio: 'inherit' });
       execSync('setx MYSQL_PORT 3306', { stdio: 'inherit' });
       execSync('setx MYSQL_USER root', { stdio: 'inherit' });
       execSync('setx MYSQL_PASS ujkxco2920@', { stdio: 'inherit' });
-      execSync('setx MYSQL_DB sarasvishva', { stdio: 'inherit' });
+      execSync('setx MYSQL_DB karyapravah', { stdio: 'inherit' });
     }
-    
+
     console.log('Environment variables set');
   } catch (error) {
     console.error('Error setting environment variables:', error);
@@ -195,24 +195,24 @@ function setEnvironmentVariables() {
  */
 function setupMcpServers() {
   console.log('Setting up MCP servers...');
-  
+
   // Create the necessary directories
   createVscodeDirectory();
   createAugmentDirectory();
-  
+
   // Update the configuration files
   updateVscodeSettings();
   updateAugmentConfig();
-  
+
   // Create the batch file for the MySQL MCP server
   createMysqlMcpBatchFile();
-  
+
   // Install the required packages
   installPackages();
-  
+
   // Set environment variables
   setEnvironmentVariables();
-  
+
   console.log('MCP servers setup complete!');
   console.log('Please restart your editor for the changes to take effect.');
 }

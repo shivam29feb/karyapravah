@@ -1,7 +1,7 @@
 {
-  "name": "sarasvishva-workflow",
+  "name": "karyapravah-workflow",
   "version": "1.0.0",
-  "description": "Workflow management for Sarasvishva project",
+  "description": "Workflow management for Karyapravah project",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "workflow",
-    "sarasvishva",
+    "karyapravah",
     "mcp",
     "database"
   ],

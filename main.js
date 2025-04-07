@@ -15,7 +15,7 @@ const helpers = require('./utilities/helpers');
 // Set up the command-line interface
 program
   .version('1.0.0')
-  .description('Workflow management for Sarasvishva project');
+  .description('Workflow management for Karyapravah project');
 
 // Command to check dependencies
 program
@@ -103,7 +103,7 @@ program
 
 // Interactive mode
 async function runInteractiveMode() {
-  console.log('Welcome to the Sarasvishva Workflow Interactive Mode');
+  console.log('Welcome to the Karyapravah Workflow Interactive Mode');
 
   let exit = false;
   while (!exit) {

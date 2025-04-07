@@ -1,6 +1,6 @@
 /**
  * MySQL Database Connector
- * 
+ *
  * This module provides functions to connect to and query the MySQL database.
  */
 
@@ -12,7 +12,7 @@ const dbConfig = {
   port: 3306,
   user: 'root',
   password: 'ujkxco2920@',
-  database: 'sarasvishva'
+  database: 'karyapravah'
 };
 
 /**

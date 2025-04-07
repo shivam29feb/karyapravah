@@ -1,6 +1,6 @@
 # Workflow System for AI Assistants
 
-This folder contains a comprehensive workflow system that enables AI assistants like Augment to access databases, use MCP servers, and perform various tasks. Originally developed for the Sarasvishva project, this workflow system is designed to be portable and can be used in any project.
+This folder contains a comprehensive workflow system that enables AI assistants like Augment to access databases, use MCP servers, and perform various tasks. Originally developed for the Karyapravah project, this workflow system is designed to be portable and can be used in any project.
 
 ## Folder Structure
 
