@@ -1,0 +1,29 @@
+{
+  "name": "sarasvishva-workflow",
+  "version": "1.0.0",
+  "description": "Workflow management for Sarasvishva project",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "check-deps": "node main.js check-deps",
+    "setup-mcp": "node main.js setup-mcp",
+    "run-mcp": "node main.js run-mcp",
+    "stop-mcp": "node main.js stop-mcp",
+    "list-tables": "node main.js list-tables",
+    "interactive": "node main.js interactive",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "workflow",
+    "sarasvishva",
+    "mcp",
+    "database"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "mysql2": "^3.14.0"
+  }
+}
