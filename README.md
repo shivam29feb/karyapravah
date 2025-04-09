@@ -48,6 +48,29 @@ npm install
 npm run check-deps
 ```
 
+### Using with BrijRas Dairy Shop Project
+
+To use this workflow system with the BrijRas Dairy Shop project, follow these steps:
+
+1. **Update the MySQL database configuration**:
+   - Edit `mcp-servers/run-mysql-mcp.bat` and change `set MYSQL_DB=karyapravah` to `set MYSQL_DB=brijras_db`
+   - Edit `mcp-servers/run-mcp-servers.js` and change `MYSQL_DB: 'karyapravah'` to `MYSQL_DB: 'brijras_db'`
+   - Edit `database-access/mysql-connector.js` and change `database: 'karyapravah'` to `database: 'brijras_db'`
+
+2. **Start the MCP servers**:
+   - Open a terminal and navigate to the karyapravah directory
+   - Run the command: `node main.js run-mcp`
+   - Keep this terminal open while working with the database
+
+3. **Use a separate terminal for database commands**:
+   - Open a new terminal and navigate to the karyapravah directory
+   - Run commands to interact with the database, such as:
+     - `node main.js list-tables` - List all tables in the database
+     - `node main.js show-structure <tableName>` - Show the structure of a specific table
+     - `node main.js show-data <tableName>` - Show the data in a specific table
+
+This approach allows you to keep the MCP servers running in one terminal while executing database commands in another terminal.
+
 ### Running the Workflow
 
 1. **Set up MCP servers** (only needed once):
@@ -275,6 +298,27 @@ You can customize this workflow system for your specific needs:
 2. **Add more database functions** by extending the `workflow/database-access/mysql-connector.js` file
 3. **Add more utility functions** by extending the `workflow/utilities/helpers.js` file
 4. **Add more commands** by modifying the `workflow/main.js` file
+
+## BrijRas Dairy Shop Database Schema
+
+The BrijRas Dairy Shop database (`brijras_db`) contains the following tables:
+
+1. **categories** - Product categories (Milk, Cheese, Butter, etc.)
+2. **products** - Dairy products with details like name, price, description
+3. **customers** - Customer information and accounts
+4. **orders** - Customer orders with status and payment information
+5. **order_items** - Individual items within each order
+6. **reviews** - Product reviews from customers
+7. **cart** - Shopping cart items for customers
+8. **wishlist** - Wishlist items for customers
+9. **admins** - Admin user accounts
+10. **coupons** - Discount coupons for orders
+11. **subscriptions** - Recurring delivery subscriptions
+12. **subscription_items** - Items within each subscription
+13. **contact_messages** - Customer inquiries and messages
+14. **newsletter_subscribers** - Email subscribers for newsletters
+
+You can view the complete database schema in the `brijras/docs/database_schema.sql` file.
 
 ## License
 
