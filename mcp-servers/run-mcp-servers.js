@@ -31,7 +31,7 @@ const mcpServers = [
       MYSQL_PORT: '3306',
       MYSQL_USER: 'root',
       MYSQL_PASS: 'ujkxco2920@',
-      MYSQL_DB: 'brijras_db'
+      MYSQL_DB: '13dc'
     },
     logFile: path.join(process.cwd(), '.augment', 'mysql-mcp.log')
   }

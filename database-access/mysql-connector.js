@@ -12,7 +12,7 @@ const dbConfig = {
   port: 3306,
   user: 'root',
   password: 'ujkxco2920@',
-  database: 'brijras_db'
+  database: '13dc'
 };
 
 /**
